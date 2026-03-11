@@ -1,12 +1,11 @@
 package AddTwoNumbers;
 
-
-import java.util.LinkedList;
-
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
-        return new ListNode();
+
+
+        return l1;
     }
 
     public static void main(String[] args) {
@@ -20,5 +19,14 @@ public class Solution {
                         new ListNode(6,
                                 new ListNode(4)));
 
+        ListNode solution = new Solution().addTwoNumbers(listNode1, listNode2);
+        while (true){
+            System.out.print(solution.val +" ");
+            if (solution.next != null){
+                solution = solution.next;
+                continue;
+            }
+            break;
+        }
     }
 }
