@@ -6,9 +6,11 @@ public class Solution {
         ListNode tmpCurrent = listNode;
         int numToMoveLeft = 0;
 
-
+        // fix later -> missing last value :d
         while (l1 != null || l2 != null){
-            int addedNum = l1.val + l2.val + numToMoveLeft;
+            int l1value = (l1 != null) ? l1.val : 0;
+            int l2value = (l2 != null) ? l2.val : 0;
+            int addedNum = l1value + l2value + numToMoveLeft;
 
             int rightDigit = addedNum % 10;
             int leftDigit = addedNum / 10;
@@ -18,9 +20,13 @@ public class Solution {
             tmpCurrent.next = new ListNode(rightDigit);
             tmpCurrent = tmpCurrent.next;
 
-            l1 = l1.next;
-            l2 = l2.next;
+            if (l1 != null){
+                l1 = l1.next;
+            }
+            if (l2 != null){
+                l2 = l2.next;
 
+            }
         }
 
         return listNode.next;
