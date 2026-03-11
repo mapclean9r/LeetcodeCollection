@@ -3,30 +3,27 @@ package AddTwoNumbers;
 public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode listNode = new ListNode();
-        ListNode tmp1 = l1;
-        ListNode tmp2 = l2;
+        ListNode tmpCurrent = listNode;
         int numToMoveLeft = 0;
-        // tbc c:
 
 
-        do {
-            int addedNum = tmp1.val + tmp2.val + numToMoveLeft;
+        while (l1 != null || l2 != null){
+            int addedNum = l1.val + l2.val + numToMoveLeft;
 
-            if (addedNum > 9) {
-                int rightDigit = addedNum % 10;
-                numToMoveLeft = addedNum / 10;
-                listNode.next = new ListNode(rightDigit);
-            }
-            if (addedNum < 9) {
-                listNode.next = new ListNode(tmp1.val + tmp2.val + numToMoveLeft);
-                numToMoveLeft = 0;
-            }
-            tmp1 = new ListNode(tmp1.val);
-            tmp2 = new ListNode(tmp2.val);
+            int rightDigit = addedNum % 10;
+            int leftDigit = addedNum / 10;
+            numToMoveLeft = leftDigit;
 
-        } while (tmp1.next != null);
 
-        return listNode;
+            tmpCurrent.next = new ListNode(rightDigit);
+            tmpCurrent = tmpCurrent.next;
+
+            l1 = l1.next;
+            l2 = l2.next;
+
+        }
+
+        return listNode.next;
     }
 
     public static void main(String[] args) {
