@@ -37,7 +37,30 @@ public class Solution {
                         new ListNode(6,
                                 new ListNode(4)));
 
-        ListNode solution = new Solution().addTwoNumbers(listNode1, listNode2);
+        //
+
+        ListNode listNode3 = new ListNode(0);
+        ListNode listNode4 = new ListNode(0);
+
+        //
+
+        ListNode listNode5 =
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9)
+        ))))));
+        ListNode listNode6 =
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9,
+                new ListNode(9)
+        )));
+
+        ListNode solution = new Solution().addTwoNumbers(listNode5, listNode6);
         while (true){
             System.out.print(solution.val +" ");
             if (solution.next != null){
