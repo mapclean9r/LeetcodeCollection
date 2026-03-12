@@ -4,17 +4,17 @@ public class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode listNode = new ListNode();
         ListNode tmpCurrent = listNode;
-        int numToMoveLeft = 0;
+        int numToMoveRight = 0;
 
-        // fix later -> missing last value :d
-        while (l1 != null || l2 != null){
+
+        while (l1 != null || l2 != null || numToMoveRight != 0){
             int l1value = (l1 != null) ? l1.val : 0;
             int l2value = (l2 != null) ? l2.val : 0;
-            int addedNum = l1value + l2value + numToMoveLeft;
+            int addedNum = l1value + l2value + numToMoveRight;
 
             int rightDigit = addedNum % 10;
             int leftDigit = addedNum / 10;
-            numToMoveLeft = leftDigit;
+            numToMoveRight = leftDigit;
 
 
             tmpCurrent.next = new ListNode(rightDigit);
